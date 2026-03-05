@@ -1,21 +1,24 @@
-class PalindromeService {
+interface PalindromeStrategy{
+    boolean check(String str);
+}
 
-    boolean check(String str){
+class ReverseStrategy implements PalindromeStrategy{
+
+    public boolean check(String str){
         String rev = new StringBuilder(str).reverse().toString();
         return str.equals(rev);
     }
-
 }
 
-public class PalindromeCheckerApp {
+public class PalindromeCheckerApp{
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
-        PalindromeService service = new PalindromeService();
+        PalindromeStrategy strategy = new ReverseStrategy();
 
-        String word = "level";
+        String word = "madam";
 
-        if(service.check(word))
+        if(strategy.check(word))
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
