@@ -1,14 +1,21 @@
+class PalindromeService {
+
+    boolean check(String str){
+        String rev = new StringBuilder(str).reverse().toString();
+        return str.equals(rev);
+    }
+
+}
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String word = "Madam";
+        PalindromeService service = new PalindromeService();
 
-        String normalized = word.replaceAll("\\s+","").toLowerCase();
+        String word = "level";
 
-        String reversed = new StringBuilder(normalized).reverse().toString();
-
-        if(normalized.equals(reversed))
+        if(service.check(word))
             System.out.println("Palindrome");
         else
             System.out.println("Not Palindrome");
